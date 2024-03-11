@@ -21,28 +21,28 @@ public:
     int length;
     int lowerBound;
     Label* previous;
-    
+
     Label(NodeID node_id, double length) {
         this->node_id = node_id;
         this->length = length;
         this->previous = NULL;
         this->lowerBound = 0;
     };
-    
+
     Label(NodeID node_id, double length, Label* previous) {
         this->node_id = node_id;
         this->length = length;
         this->previous = previous;
         this->lowerBound = 0;
     };
-    
+
     Label(NodeID node_id, double length, int lowerBound) {
         this->node_id = node_id;
         this->length = length;
         this->previous = NULL;
         this->lowerBound = lowerBound;
     };
-    
+
     Label(NodeID node_id, double length, int lowerBound, Label* previous) {
         this->node_id = node_id;
         this->length = length;
@@ -55,7 +55,7 @@ class MyComparator {
     bool reverse;
 public:
     MyComparator(const bool& revparam=false) {
-    	reverse=revparam;
+        reverse=revparam;
     }
     bool operator() (const Label* lhs, const Label* rhs) const {
         return (lhs->length>rhs->length);
@@ -66,7 +66,7 @@ class AstarComparator {
     bool reverse;
 public:
     AstarComparator(const bool& revparam=false) {
-    	reverse=revparam;
+        reverse=revparam;
     }
     bool operator() (const Label* lhs, const Label* rhs) const     {
         return (lhs->lowerBound>rhs->lowerBound);

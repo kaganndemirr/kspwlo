@@ -26,7 +26,7 @@ Path astar_limited(RoadNetwork *rN, NodeID source, NodeID target, vector<int> &b
     Label* targetLabel = NULL;
     distances[source]=0;
     vector<Label*> allCreatedLabels;
-    
+
     int newLowerBound = bounds[source];
     Label* srcLabel = new Label(source, newLength, newLowerBound);
     queue.push(srcLabel);
@@ -38,12 +38,12 @@ Path astar_limited(RoadNetwork *rN, NodeID source, NodeID target, vector<int> &b
         pops++;
         if (visited[curLabel->node_id])
             continue;
-        
+
         visited[curLabel->node_id] = true;
         distances[curLabel->node_id] = curLabel->length;
-        
+
         if (curLabel->node_id == target) { // Destination has been found
-        	targetLabel = curLabel;
+            targetLabel = curLabel;
             resPath.length = curLabel->length;
             break;
         }
@@ -53,29 +53,29 @@ Path astar_limited(RoadNetwork *rN, NodeID source, NodeID target, vector<int> &b
                 newLowerBound = newLength + bounds[iterAdj->first];
                 Label* newPrevious = curLabel;
                 Edge e(make_pair(curLabel->node_id,iterAdj->first));
-                
-                if(deletedEdges.find(e) != deletedEdges.end()) 
-                	continue;
-                
+
+                if(deletedEdges.find(e) != deletedEdges.end())
+                    continue;
+
                 if (distances[iterAdj->first] > newLength) {
-                	Label* label = new Label(iterAdj->first, newLength, newLowerBound, newPrevious);
-                	allCreatedLabels.push_back(label);
+                    Label* label = new Label(iterAdj->first, newLength, newLowerBound, newPrevious);
+                    allCreatedLabels.push_back(label);
                     queue.push(label);
                 }
             }
         }
     }
     while(targetLabel != NULL) {
-    	resPath.nodes.push_back(targetLabel->node_id);
-    	targetLabel = targetLabel->previous;
+        resPath.nodes.push_back(targetLabel->node_id);
+        targetLabel = targetLabel->previous;
     }
     reverse(resPath.nodes.begin(),resPath.nodes.end());
-    
+
     distances.clear();
     visited.clear();
     for(unsigned int i=0;i<allCreatedLabels.size();i++)
-    	delete allCreatedLabels[i];
-    
+        delete allCreatedLabels[i];
+
     return resPath;
 }
 
