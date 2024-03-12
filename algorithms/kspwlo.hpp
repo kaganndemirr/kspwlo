@@ -24,7 +24,7 @@ public:
     OlLabel(NodeID node_id, int length, vector<double> &overlapList, int overlapForK) : Label(node_id,length) {
         this->overlapList = overlapList;
         this->overlapForK = overlapForK;
-        this->previous = NULL;
+        this->previous = nullptr;
     };
 
     OlLabel(NodeID node_id, int length, vector<double> &overlapList, int overlapForK, OlLabel* previous) : Label(node_id,length,previous) {
@@ -35,7 +35,7 @@ public:
     OlLabel(NodeID node_id, int length, int fDist, vector<double> &overlapList, int overlapForK) : Label(node_id,length,fDist) {
         this->overlapList = overlapList;
         this->overlapForK = overlapForK;
-        this->previous = NULL;
+        this->previous = nullptr;
     };
 
     OlLabel(NodeID node_id, int length, int fDist, vector<double> &overlapList, int overlapForK, OlLabel* previous) : Label(node_id,length,fDist,previous) {
@@ -73,15 +73,15 @@ public:
             return false;
         else {
             float minLhs = 1;
-            for(unsigned int i=0;i<lhs->overlapList.size();i++) {
-                if(lhs->overlapList[i] < minLhs)
-                    minLhs = lhs->overlapList[i];
+            for(double i : lhs->overlapList) {
+                if(i < minLhs)
+                    minLhs = i;
             }
 
             float minRhs = 1;
-            for(unsigned int i=0;i<rhs->overlapList.size();i++) {
-                if(rhs->overlapList[i] < minRhs)
-                    minRhs = rhs->overlapList[i];
+            for(double i : rhs->overlapList) {
+                if(i < minRhs)
+                    minRhs = i;
             }
 
             return minLhs > minRhs;

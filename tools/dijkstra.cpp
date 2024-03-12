@@ -23,7 +23,7 @@ pair<Path,vector<int>> dijkstra_path_and_bounds(RoadNetwork *rN, NodeID source, 
     EdgeList::iterator iterAdj;
     vector<int> distances(rN->numNodes, INT_MAX);
     vector<bool> visited(rN->numNodes);
-    Label *targetLabel=NULL;
+    Label *targetLabel=nullptr;
     distances[target]=0;
     vector<Label*> allCreatedLabels;
     Label* srcLabel = new Label(target, newLength);
@@ -43,7 +43,7 @@ pair<Path,vector<int>> dijkstra_path_and_bounds(RoadNetwork *rN, NodeID source, 
         if (curLabel->node_id == source) { // Destination has been found
             targetLabel = curLabel;
             resPath.length = curLabel->length;
-            while(targetLabel != NULL) {
+            while(targetLabel != nullptr) {
                 resPath.nodes.push_back(targetLabel->node_id);
                 targetLabel = targetLabel->previous;
             }
@@ -78,7 +78,7 @@ int dijkstra_dist_del(RoadNetwork *rN, NodeID source, NodeID target) {
     EdgeList::iterator iterAdj;
     vector<int> distances(rN->numNodes, INT_MAX);
     vector<bool> visited(rN->numNodes);
-    Label *targetLabel=NULL;
+    Label *targetLabel=nullptr;
     distances[target]=0;
     vector<Label*> allCreatedLabels;
     Label* srcLabel = new Label(target, newLength);

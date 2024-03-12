@@ -171,7 +171,7 @@ pair<vector<Path>,double> esx_complete(RoadNetwork *rN, NodeID source, NodeID ta
 
         for(unsigned int j=0;j<resPaths[0].nodes.size()-1;j++) {
             Edge e(resPaths[0].nodes[j],resPaths[0].nodes[j+1]);
-            pathEdges[0].push(make_pair(compute_priority(rN,e,resDijkstra.second,deletedEdges),e));
+            pathEdges[0].emplace(compute_priority(rN,e,resDijkstra.second,deletedEdges),e);
         }
 
         vector<double> overlaps(k,0);

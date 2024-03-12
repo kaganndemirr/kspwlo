@@ -67,7 +67,7 @@ vector<Path> onepass_plus(RoadNetwork *rN, NodeID source, NodeID target, unsigne
 
             OlLabel *tempLabel = curLabel;
             Path tempPath;
-            while(tempLabel != NULL) {
+            while(tempLabel != nullptr) {
                 tempPath.nodes.push_back(tempLabel->node_id);
                 tempLabel = static_cast<OlLabel*> (tempLabel->previous);
             }
@@ -100,7 +100,7 @@ vector<Path> onepass_plus(RoadNetwork *rN, NodeID source, NodeID target, unsigne
             OlLabel *tempLabel = curLabel;
             Path tempPath;
 
-            while(tempLabel != NULL) {
+            while(tempLabel != nullptr) {
                 tempPath.nodes.push_back(tempLabel->node_id);
                 tempLabel = static_cast<OlLabel*> (tempLabel->previous);
             }
@@ -130,7 +130,7 @@ vector<Path> onepass_plus(RoadNetwork *rN, NodeID source, NodeID target, unsigne
                 // Avoid cycles.
                 bool containsLoop = false;
                 OlLabel *tempLabel = curLabel;
-                while(tempLabel != NULL) {
+                while(tempLabel != nullptr) {
                     if(tempLabel->node_id == iterAdj->first) {
                         containsLoop = true;
                         break;

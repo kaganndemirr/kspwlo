@@ -23,7 +23,7 @@ Path astar_limited(RoadNetwork *rN, NodeID source, NodeID target, vector<int> &b
     EdgeList::iterator iterAdj;
     vector<int> distances(rN->numNodes, INT_MAX);
     vector<bool> visited(rN->numNodes);
-    Label* targetLabel = NULL;
+    Label* targetLabel = nullptr;
     distances[source]=0;
     vector<Label*> allCreatedLabels;
 
@@ -65,7 +65,7 @@ Path astar_limited(RoadNetwork *rN, NodeID source, NodeID target, vector<int> &b
             }
         }
     }
-    while(targetLabel != NULL) {
+    while(targetLabel != nullptr) {
         resPath.nodes.push_back(targetLabel->node_id);
         targetLabel = targetLabel->previous;
     }

@@ -109,6 +109,24 @@ int main(int argc, char **argv) {
     }
     cout << "]" << endl;
 
+    ofstream ofs; // output file stream
+
+    ofs.open( "../paths.txt",std::ios::out);
+
+    if(ofs)
+    {
+        for (auto& i : result) {
+            for (size_t j = 0; j < i.nodes.size(); ++j) {
+                ofs << i.nodes[j];
+
+                if (j != i.nodes.size() - 1) {
+                    ofs << ",";
+                }
+            }
+            ofs << std::endl;
+        }
+    }
+
     delete rN;
     return 0;
 }

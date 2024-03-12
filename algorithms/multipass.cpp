@@ -85,7 +85,7 @@ Q.pop();
 if (curLabel->node_id == target) {
 OlLabel *tempLabel = curLabel;
 
-while(tempLabel != NULL) {
+while(tempLabel != nullptr) {
 resPath.nodes.push_back(tempLabel->node_id);
 tempLabel = static_cast<OlLabel*> (tempLabel->previous);
 }
@@ -100,7 +100,7 @@ skyline.insert(curLabel);
 // Expand search. For each outgoing edge.
 for(iterAdj = rN->adjListOut[curLabel->node_id].begin(); iterAdj != rN->adjListOut[curLabel->node_id].end(); iterAdj++) {
 
-if(curLabel->previous !=NULL && curLabel->previous->node_id == iterAdj->first)
+if(curLabel->previous !=nullptr && curLabel->previous->node_id == iterAdj->first)
 continue;
 
 newLength = curLabel->length + iterAdj->second;

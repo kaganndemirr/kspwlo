@@ -25,7 +25,7 @@ public:
     Label(NodeID node_id, double length) {
         this->node_id = node_id;
         this->length = length;
-        this->previous = NULL;
+        this->previous = nullptr;
         this->lowerBound = 0;
     };
 
@@ -39,7 +39,7 @@ public:
     Label(NodeID node_id, double length, int lowerBound) {
         this->node_id = node_id;
         this->length = length;
-        this->previous = NULL;
+        this->previous = nullptr;
         this->lowerBound = lowerBound;
     };
 
