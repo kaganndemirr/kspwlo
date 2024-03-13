@@ -111,7 +111,7 @@ int main(int argc, char **argv) {
 
     ofstream ofs; // output file stream
 
-    ofs.open( "../paths.txt",std::ios::out);
+    ofs.open( "paths.txt",std::ios::out);
 
     if(ofs)
     {
