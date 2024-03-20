@@ -13,11 +13,11 @@ Copyright (c) 2017 Theodoros Chondrogiannis
 using namespace std;
 
 int main(int argc, char **argv) {
-    string graphFile = "";
+    string graphFile;
     unsigned int k = 0;
     double theta = -1;
-    string algo = "";
-    RoadNetwork *rN = 0;
+    string algo;
+    RoadNetwork *rN;
 
     NodeID source = 0, target = 100;
 
@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
     }
 
     //Input checking
-    if(graphFile == "" ) {
+    if(graphFile.empty() ) {
         cerr << "Wrong arguments. Define graph file correctly." << endl;
         exit(1);
     }
